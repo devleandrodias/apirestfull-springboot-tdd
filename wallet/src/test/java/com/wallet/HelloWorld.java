@@ -1,4 +1,4 @@
-package com.wallet.wallet;
+package com.wallet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * Primeiro teste em java
+ * Primeira classe de testes com Java
  */
 
 @SpringBootTest
