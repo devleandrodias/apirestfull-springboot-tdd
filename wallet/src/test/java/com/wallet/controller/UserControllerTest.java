@@ -8,7 +8,10 @@ import com.wallet.dto.UserDTO;
 import com.wallet.entity.User;
 import com.wallet.service.UserService;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,7 +44,10 @@ public class UserControllerTest {
   @Autowired
   MockMvc mvc;
 
+  @Test
   public void testSave() throws Exception {
+    BDDMockito.given(service.save(Mockito.any(User.class))).willReturn(getMockUser()); // Mockando os dados
+
     mvc.perform(MockMvcRequestBuilders.post(URL).content(getJsonPayload()).contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
   }
