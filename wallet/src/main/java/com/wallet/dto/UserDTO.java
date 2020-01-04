@@ -1,5 +1,6 @@
 package com.wallet.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
@@ -16,6 +17,7 @@ public class UserDTO {
 
   private Long id;
 
+  @Email(message = "Email inválido")
   @NotNull(message = "Email é obrigatório")
   private String email;
 
